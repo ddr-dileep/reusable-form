@@ -53,3 +53,22 @@ export const registerFileds = [
     id: "confirmPassword-register-form",
   },
 ];
+
+export const loginFileds = [
+  {
+    name: "email",
+    type: "email",
+    placeholder: "abc@example.com",
+    label: "Email address",
+    required: true,
+    id: "email-register-form",
+  },
+  {
+    name: "password",
+    type: "password",
+    placeholder: "Abc#1234",
+    label: "Password",
+    required: true,
+    id: "password-register-form",
+  },
+];
