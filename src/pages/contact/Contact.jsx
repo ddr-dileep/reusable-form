@@ -2,35 +2,34 @@ import React, { useState } from "react";
 import Heading from "../../components/heading/Heading";
 import AppForm from "../../components/form/AppForm";
 import Button from "../../components/button/Button";
-import { loginFileds } from "../../constants";
-import "./styles.scss";
+import { contactUsFormFileds } from "../../constants";
 
-const Login = () => {
-  const [loginFormValues, setLoginFormValues] = useState({});
+const Contact = () => {
+  const [contactUsFormValues, setContactUsFormValues] = useState({});
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(loginFormValues);
+    console.log(contactUsFormValues);
   };
 
   const onFormChange = (e) => {
-    const { name, value } = e.target;
-    setLoginFormValues({
-      ...loginFormValues,
-      [name]: value,
+    const { name, value, checked, type } = e.target;
+    setContactUsFormValues({
+      ...contactUsFormValues,
+      [name]: type !== "checkbox" ? value : checked,
     });
   };
 
   return (
     <div className="login_page">
-      <Heading title="Welcome back" />
+      <Heading title="Get in touch with us" />
       <AppForm
-        fields={loginFileds}
+        fields={contactUsFormFileds}
         onFormChange={onFormChange}
-        fieldValues={loginFormValues}
+        fieldValues={contactUsFormValues}
       />
       <Button
-        title="Login"
+        title="submit"
         onClick={onFormSubmit}
         className="w-100 py-2 btn-success"
       />
@@ -38,4 +37,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Contact;
